@@ -29,8 +29,8 @@ public class Ch14Equals{
 
         System.out.println();
 
-        System.out.println("Equals.(stack1, stack2) : " + Equals(stack1, stack2));
-        System.out.println("Equals.(stack1, stack3) : " + Equals(stack1, stack3));
+        System.out.println("Equals.(stack1, stack2) : " + equals(stack1, stack2));
+        System.out.println("Equals.(stack1, stack3) : " + equals(stack1, stack3));
 
         System.out.println();
 
@@ -39,8 +39,12 @@ public class Ch14Equals{
         System.out.println("Stack 3 Setelah : " + stack3);
     }
 
-    public static boolean Equals(Stack<Integer> stack1, Stack<Integer> stack2){
+    public static boolean equals(Stack<Integer> stack1, Stack<Integer> stack2){
         Stack<Integer> sementara1 = new Stack<Integer>(), sementara2 = new Stack<Integer>();
+
+        if(stack1.size() != stack2.size()){
+            return false;
+        }
 
         sementara1.addAll(stack1);
         sementara2.addAll(stack2);
