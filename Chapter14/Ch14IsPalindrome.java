@@ -14,7 +14,7 @@ public class Ch14IsPalindrome {
         queue.add(8);
         queue.add(3);
 
-        System.out.print("Apakah " + Arrays.toString(queue.toArray()));
+        System.out.print("Apakah " + queue);
         System.out.print(", palindrome? : " + isPalindrome(queue));
 
         queue.clear();
@@ -27,7 +27,7 @@ public class Ch14IsPalindrome {
         queue.add(17);
         queue.add(3);
 
-        System.out.print("Apakah " + Arrays.toString(queue.toArray()));
+        System.out.print("Apakah " + queue);
         System.out.print(", palindrome? : " + isPalindrome(queue));
 
     }
