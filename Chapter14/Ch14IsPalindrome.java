@@ -16,6 +16,7 @@ public class Ch14IsPalindrome {
 
         System.out.print("Apakah " + queue);
         System.out.print(", palindrome? : " + isPalindrome(queue));
+        System.out.println(queue);
 
         queue.clear();
         System.out.println();
@@ -29,26 +30,36 @@ public class Ch14IsPalindrome {
 
         System.out.print("Apakah " + queue);
         System.out.print(", palindrome? : " + isPalindrome(queue));
+        System.out.println(queue);
 
     }
 
     public static boolean isPalindrome (Queue<Integer> queue) {
         Stack<Integer> stackSementara = new Stack<>();
-        Queue<Integer> queueSementara = new LinkedList<>(queue);
+        boolean hasil = true;
 
-        for (int i = 0; i < queueSementara.size(); i++) {
+        int jmlData = queue.size();
+        for (int i = 0; i < jmlData / 2; i++) {
             int data = queue.remove();
+            queue.add(data);
             stackSementara.add(data);
         }
 
-        queue.addAll(queueSementara);
+        if(jmlData % 2 == 1) {
+            queue.add(queue.remove());
+        }
 
-        for (int i = 0; i < queue.size(); i++) {
-            if (!stackSementara.pop().equals(queueSementara.remove())) {
-                return false;
+        for (int i = 0; i < jmlData / 2; i++) {
+            int a = stackSementara.pop();
+            int b = queue.remove();
+            if (a != b) {
+                hasil = false;
+                queue.add(b);
+            } else {
+                queue.add(a);
             }
         }
 
-        return true;
+        return hasil;
     }
 }
